@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="card p-3 mb-2 bg-info text-dark ">
+<h1 class="text-center" >Enter your weight and calculate how much it will be on other cosmic objects.</h1>
+
+    <form method="POST">
+
+    {% csrf_token %}
+        <label for="exampleFormControlInput1" class="form-label">Weight in kg:</label>
+        <input class="form-control" placeholder="example: 73" type="text" name="weight" id="weight"/>
+        <label for="exampleFormControlInput1" class="form-label">Planet:</label>
+        <select name="planet" id="planet" class="form-select" aria-label="Default select example">
+            <option value="Venus" id="Venus">Venus</option>
+            <option value="Mercury" id="Mercury">Mercury</option>
+            <option value="Mars" id="Mars">Mars</option>
+            <option value="Jupiter" id="Jupiter">Jupiter</option>
+            <option value="Saturn" id="Saturn">Saturn</option>
+            <option value="Pluto" id="Pluto">Pluto</option>
+            <option value="The Sun" id="Sun">The Sun</option>
+            <option value="Moon" id="Moon">Moon</option>
+            <option value="Uranus" id="Uranus">Uranus</option>
+            <option value="Neptune" id="Neptune">Neptune</option>
+        </select>
+        <div class="d-grid gap-2 col-2 mx-auto">
+        <button class="btn btn-primary mt-2" type="submit">Calculate</button>
+        </div>
+    </form>
+
+    {% if error %}
+        <div class="col mb-4">
+            <h2>Your weight must be a number</h2>
+        </div>
+    {% elif result %}
+        <div class="col mb-4">
+            <h2>You will weight {{ result }}kg on {{ planet }}</h2>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}
