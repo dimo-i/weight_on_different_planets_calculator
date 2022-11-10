@@ -1,4 +1,4 @@
-================= Weight calculator App ============
+============= Weight calculator App ========
 ==========================================================
 The Weight calculator for different planets and cosmic objects is a simple project created with Django and function based views.
 ==========================================================
