@@ -1,5 +1,16 @@
 from django.shortcuts import render, redirect
 
+VENUS = 0.91
+MERCURY = 0.38
+MARS = 0.38
+JUPITER = 2.34
+SATURN = 1.06
+PLUTO = 0.06
+THE_SUN = 27.01
+MOON = 0.166
+URANUS = 0.92
+NEPTUNE = 1.19
+
 def index(request):
     return redirect('calculator')
 
@@ -14,25 +25,25 @@ def calculate(request):
             if type(int(weight)) == int:
                 weight = int(weight)
                 if planet == "Venus":
-                    gravity = 0.91
+                    gravity = VENUS
                 elif planet == "Mercury":
-                    gravity = 0.38
+                    gravity = MERCURY
                 elif planet == "Mars":
-                    gravity = 0.38
+                    gravity = MARS
                 elif planet == "Jupiter":
-                    gravity = 2.34
+                    gravity = JUPITER
                 elif planet == "Saturn":
-                    gravity = 1.06
+                    gravity = SATURN
                 elif planet == "Pluto":
-                    gravity = 0.06
+                    gravity = PLUTO
                 elif planet == "The Sun":
-                    gravity = 27.01
+                    gravity = THE_SUN
                 elif planet == "Moon":
-                    gravity = 0.166
+                    gravity = MOON
                 elif planet == "Uranus":
-                    gravity = 0.92
+                    gravity = URANUS
                 elif planet == "Neptune":
-                    gravity = 1.19
+                    gravity = NEPTUNE
                 result = weight * gravity
     except:
         error_message = "Weight should be a number"
